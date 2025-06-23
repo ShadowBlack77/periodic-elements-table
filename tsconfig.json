@@ -22,7 +22,18 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@lib/periodic-elements": [
+        "./libs/periodic-elements/src/index.ts"
+      ],
+      "@lib/shared/popup": [
+        "./libs/shared/popup/src/index.ts"
+      ],
+      "@lib/shared/theme": [
+        "./libs/shared/theme/src/index.ts"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

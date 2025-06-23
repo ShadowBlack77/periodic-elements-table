@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Marvel:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+html, body { height: 100%; }
+body { 
+  margin: 0;  
+  font-family: "Marvel", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  @include mat.table-overrides((
+    background-color: transparent,
+    row-item-outline-color: #93c5fd
+  ));
+}

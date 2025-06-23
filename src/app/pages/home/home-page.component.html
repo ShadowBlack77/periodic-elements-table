@@ -1,0 +1,10 @@
+<lib-periodic-elements-table (updatePeriodicElement)="handlePeriodElementUpdate($event)" />
+
+@if (showPopup()) {
+  <lib-custom-popup popupTitle="Update Element" (closeEmitter)="handlePopupClose()">
+    <lib-update-periodic-element-popup-form 
+      [periodicElement]="periodicElement()" 
+      (closePopup)="handlePopupClose()" 
+    />
+  </lib-custom-popup>
+}
