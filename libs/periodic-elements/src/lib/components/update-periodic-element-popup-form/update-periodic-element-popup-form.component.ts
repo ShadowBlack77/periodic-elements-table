@@ -2,12 +2,14 @@ import { AfterContentInit, Component, inject, input, InputSignal, output, Output
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { PeriodicElement } from "../../models/periodic-element.model";
 import { PeriodicElementsStore } from "../../store/periodic-elements.store";
+import { CommonModule } from "@angular/common";
 
 @Component({
   selector: 'lib-update-periodic-element-popup-form',
   templateUrl: './update-periodic-element-popup-form.component.html',
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
   ]
 })
 export class UpdatePeriodicElementPopupFormComponent implements AfterContentInit {
@@ -22,7 +24,7 @@ export class UpdatePeriodicElementPopupFormComponent implements AfterContentInit
       nonNullable: true,
       validators: [
         Validators.required,
-        Validators.minLength(3)
+        Validators.minLength(4)
       ]
     }),
     weight: new FormControl(0, {

@@ -10,6 +10,18 @@
         placeholder="eg. Hydrogen"
         class="border rounded-md px-2 py-0.5 outline-blue-300 w-full"
       >
+      @if (periodicElementForm.controls['name'].invalid && periodicElementForm.controls['name'].touched) {
+        @if (periodicElementForm.controls['name'].errors?.['required']) {
+          <div>
+            <p class="ms-2 text-red-700 italic mt-1">*Field is required</p>
+          </div>
+        }
+        @if (periodicElementForm.controls['name'].errors?.['minlength']) {
+          <div>
+            <p class="ms-2 text-red-700 italic mt-1">*Minimum length of caratcers is 4</p>
+          </div>
+        }
+      }
     </div>
     <div class="mb-3">
       <label for="weight" class="block mb-1">Weight</label>
@@ -21,6 +33,18 @@
         placeholder="eg. 1.0079"
         class="border rounded-md px-2 py-0.5 outline-blue-300 w-full"
       >
+      @if (periodicElementForm.controls['weight'].invalid && periodicElementForm.controls['weight'].touched) {
+        @if (periodicElementForm.controls['weight'].errors?.['required']) {
+          <div>
+            <p class="ms-2 text-red-700 italic mt-1">*Field is required</p>
+          </div>
+        }
+        @if (periodicElementForm.controls['weight'].errors?.['min']) {
+          <div>
+            <p class="ms-2 text-red-700 italic mt-1">*Minimum value of fields is 0</p>
+          </div>
+        }
+      }
     </div>
     <div class="mb-3">
       <label for="symbol" class="block mb-1">Symbol</label>
@@ -32,10 +56,28 @@
         placeholder="H"
         class="border rounded-md px-2 py-0.5 outline-blue-300 w-full"
       >
+      @if (periodicElementForm.controls['symbol'].invalid && periodicElementForm.controls['symbol'].touched) {
+        @if (periodicElementForm.controls['symbol'].errors?.['required']) {
+          <div>
+            <p class="ms-2 text-red-700 italic mt-1">*Field is required</p>
+          </div>
+        }
+        @if (periodicElementForm.controls['name'].errors?.['minlength']) {
+          <div>
+            <p class="ms-2 text-red-700 italic mt-1">*Minimum length of caratcers is 1</p>
+          </div>
+        }
+      }
     </div>
   </div>
   <div class="flex justify-between">
     <button (click)="closePopup.emit()" class="bg-black text-white rounded-md px-4 py-1">Cancel</button>
-    <button class="bg-blue-300 rounded-md px-4 py-1">Save</button>
+    <button 
+      [disabled]="!periodicElementForm.valid"
+      [ngClass]="{
+        'bg-blue-300/80': !periodicElementForm.valid
+      }"
+      class="bg-blue-300 rounded-md px-4 py-1"
+    >Save</button>
   </div>
 </form>
